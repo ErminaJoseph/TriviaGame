@@ -55,16 +55,48 @@ $(document).ready(function() {
 
     $("#choice-one").on("click", function() {
         console.log("Yes");
-        userChoice = $("#choice-one").val("id");
+        userChoice = $(this).text();
+        console.log(userChoice);
+        console.log(questionAndAnswers[index].answer);
+        if (userChoice === questionAndAnswers[index].answer) {
+            correctAnswer();
+        } else {
+            incorrectAnswer();
+        }
+    });
+
+    $("#choice-two").on("click", function() {
+        console.log("Yes");
+        userChoice = $(this).text();
+        console.log(userChoice);
+        console.log(questionAndAnswers[index].answer);
+        if (userChoice === questionAndAnswers[index].answer) {
+            correctAnswer();
+        } else {
+            incorrectAnswer();
+        }
+    });
+
+    $("#choice-three").on("click", function() {
+        console.log("Yes");
+        userChoice = $(this).text();
         console.log(userChoice);
         if (userChoice === questionAndAnswers[index].answer[index]) {
             correctAnswer();
         } else {
             incorrectAnswer();
         }
+    });
 
-        index++;
-        console.log(index);
+    $("#choice-four").on("click", function() {
+        console.log("Yes");
+        userChoice = $(this).text();
+        console.log(userChoice);
+        if (userChoice === questionAndAnswers[index].answer[index]) {
+            correctAnswer();
+        } else {
+            incorrectAnswer();
+        }
     });
 
     function decrement () {
