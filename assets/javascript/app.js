@@ -118,16 +118,17 @@ $(document).ready(function() {
         $("#choice-four").html(questionAndAnswers[0].choices[3]);
     }
 
-
     function correctAnswer () {
-        $("#choices").html("You are correct!")
+        $("#display").empty();
+        $("#choices").html("You are correct!");
         correctAnswers++;
-
+        index++;
     }
 
     function incorrectAnswer () {
-        $("#choices").html("Sorry, that is incorrect!")
+        $("#dislay").empty();
+        $("#choices").html("Sorry, that is incorrect!");
         incorrectAnswers++;
-
+        index++;
     }
 });
