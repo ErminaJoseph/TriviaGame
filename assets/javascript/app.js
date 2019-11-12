@@ -1,79 +1,101 @@
 $(document).ready(function() { 
     var correctAnswers = 0;
     var incorrectAnswers = 0;
-    var timer = 30;
-    var intervalId;
+    var timer = 31;
+    var timerID;
+    var userChoice;
+    var index = 0;
 
-    var questionAndAnswers = {
-        questions: {
-            q1: "Why does Robin hate going to the mall?",
-            q2: "What does Lily's father do for a living?",
-            q3: "Which singer/actress did not guest star on the show?",
-            q4: "What was the name of Ted's high school sweetheart?",
-            q5: "What is Barney's catch word",
-            q6: "What college did Ted, Marshall, and Lily attend?",
-            q7: "At what type of event would you not find Barney in a suit?",
-            q8: "What is Ted's middle name?",
-            q9: "Where is Marshall from?",
-            q10: "What did Ted say to Robin on their first date?"
-        },
-        choices: {
-            c1: ["She was mugged at the mall", "She toured every mall in Canada as a pop singer", "She was banned at the mall for stealing", "She couldn't stop eating Cinnabons"],
-            c2: ["Designs board games", "Creates unique desserts", "Software Engineer", "He doesn't work"],
-            c3: ["Jennifer Lopez", "Carrie Underwood", "Katy Perry", "All of the above"],
-            c4: ["Cassie", "Kathy", "Karen", "Kelly"],
-            c5: ["Legendary", "Epic", "Exhiliarting", "None of the above" ],
-            c6: ["UCONN", "Wesleyan", "Qunnipiac", "Yale"],
-            c7: ["Weddings", "Football Games", "Funerals", "Concerts"],
-            c8: ["Cecil", "Evelyn", "James", "Albert"],
-            c9: ["St. Cloud, MN", "St. Paul, MN", "St. Michael, MN", "St. Joseph, MN"],
-            c10: ["Marry me", "This was a mistake", "I love you", "I won't call you"]
-        },
-        answers: {
-            a1: "She toured every mall in Canada as a pop singer",
-            a2: "Designs board games",
-            a3: "All of the above",
-            a4: "Karen",
-            a5: "Legendary",
-            a6: "Wesleyan",
-            a7: "Funerals",
-            a8: "Evelyn",
-            a9: "St. Cloud, MN",
-            a10: "I love you",
-        },
-    }
+    var questionAndAnswers = [{
+            question: "Why does Robin hate going to the mall?", 
+            answer: "She toured every mall in Canada as a pop singer",
+            choices: ["She was mugged at the mall", "She toured every mall in Canada as a pop singer", "She was banned at the mall for stealing", "She couldn't stop eating Cinnabons"],
+        }, {
+            question: "What does Lily's father do for a living?",
+            answer: "Designs board games",
+            choices: ["Designs board games", "Creates unique desserts", "Software Engineer", "He doesn't work"],
+        }, {
+            question: "Which singer/actress did not guest star on the show?",
+            answer: "All of the above",
+            choices: ["Jennifer Lopez", "Carrie Underwood", "Katy Perry", "All of the above"],
+        }, {
+            question: "What was the name of Ted's high school sweetheart?",
+            answer: "Karen",
+            choices: ["Cassie", "Kathy", "Karen", "Kelly"],
+        }, {
+            question: "What is Barney's catch word",
+            answer: "Legendary",
+            choices: ["Legendary", "Epic", "Exhiliarting", "None of the above" ],
+        }, {
+            question: "What college did Ted, Marshall, and Lily attend?",
+            answer: "Wesleyan",
+            choices: ["UCONN", "Wesleyan", "Qunnipiac", "Yale"],
+        }, {
+            question: "At what type of event would you not find Barney in a suit?",
+            answer: "Funerals",
+            choices: ["Weddings", "Football Games", "Funerals", "Concerts"],
+        }, {
+            question: "What is Ted's middle name?",
+            answer: "Evelyn",
+            choices: ["Cecil", "Evelyn", "James", "Albert"],
+        }, {
+            question: "Where is Marshall from?",
+            answer: "St. Cloud, MN",
+            choices: ["St. Cloud, MN", "St. Paul, MN", "St. Michael, MN", "St. Joseph, MN"],
+        }, {
+            question: "Why does Robin hate going to the mall?",
+            answer: "I love you",
+            choices: ["Marry me", "This was a mistake", "I love you", "I just want to be casual"]
+        }]
 
 
-    
     $("#get-started").on("click", function () {
-        $("#display").empty();
         startGame ();
     });
 
-    $("#choice-one").on("click", function () {
-        nextQuestion ();
-        console.log("hey");
+    $("#choice-one").on("click", function() {
+        console.log("Yes");
+        userChoice = $("#choice-one").val("id");
+        console.log(userChoice);
+        if (userChoice === questionAndAnswers[index].answer[index]) {
+            correctAnswer();
+        } else {
+            incorrectAnswer();
+        }
+
+        index++;
+        console.log(index);
     });
 
+    function decrement () {
+        timer--;
+        $("#display").html("Time Remaining: " + timer);
 
-    function startGame () {
-        $("#display").html("Time Left: " + timer);
-        $("#question").html(questionAndAnswers.questions.q1);
-        $("#choice-one").append(questionAndAnswers.choices.c1[0]);
-        $("#choice-two").append(questionAndAnswers.choices.c1[1]);
-        $("#choice-three").append(questionAndAnswers.choices.c1[2]);
-        $("#choice-four").append(questionAndAnswers.choices.c1[3]);
+        if (timer === 0) {
+
+        }
     }
 
-    function nextQuestion () {
-    for (i = 1; i < questionAndAnswers.questions.length; i++) {
-        timer = 30;
-        $("#display").html("Time Left: " + timer);
-        $("#question").html(questionAndAnswers.questions[i]);
-        $("#choice-one").append(questionAndAnswers.choices.c[i[0]]);
-        $("#choice-two").append(questionAndAnswers.choices.c[i[1]]);
-        $("#choice-three").append(questionAndAnswers.choices.c[i[2]]);
-        $("#choice-four").append(questionAndAnswers.choices.c[i[3]]);
-        }
+    function startGame () {
+        $("#display").empty()
+        timerID = setInterval(decrement, 1000);
+        $("#question").html(questionAndAnswers[0].question);
+        $("#choice-one").html(questionAndAnswers[0].choices[0]);
+        $("#choice-two").html(questionAndAnswers[0].choices[1]);
+        $("#choice-three").html(questionAndAnswers[0].choices[2]);
+        $("#choice-four").html(questionAndAnswers[0].choices[3]);
+    }
+
+
+    function correctAnswer () {
+        $("#choices").html("You are correct!")
+        correctAnswers++;
+
+    }
+
+    function incorrectAnswer () {
+        $("#choices").html("Sorry, that is incorrect!")
+        incorrectAnswers++;
+
     }
 });
