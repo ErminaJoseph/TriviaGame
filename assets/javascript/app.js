@@ -212,7 +212,7 @@ $(document).ready(function() {
     
     }
 
-    function nextQuestion(){
+    function nextQuestion() {
         timer = 31;
         timerID = setInterval(decrement, 1000);
         $("#question").html(questionAndAnswers[index].question);
