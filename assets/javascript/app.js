@@ -51,7 +51,6 @@ $(document).ready(function() {
 
     $("#get-started").on("click", function () {
         startGame ();
-        $("#restart").empty();
     });
 
     $("#choice-one").on("click", function() {
@@ -139,7 +138,6 @@ $(document).ready(function() {
 
     $("#restart").on("click", function () {
         startGame ();
-        index = 0;
     });
 
     function decrement () {
@@ -155,15 +153,13 @@ $(document).ready(function() {
             $("#choice-four").empty();
             $("#restart").empty();
             console.log(questionAndAnswers[index].answer);
-            index ++;
-            incorrectAnswer++;
+            incorrectAnswer();
 
             nextQuestionPrompt = setTimeout(function() {
                 nextQuestion();
             }, 2000);
         }
     }
-
 
     function startGame () {
         $("#display").empty()
@@ -228,6 +224,9 @@ $(document).ready(function() {
             $("#choice-three").empty(" ");
             $("#choice-four").empty(" ");
             $("#restart").html("Would you like to play again?")
+            index = 0;
+            correctAnswers = 0;
+            incorrectAnswers = 0;
         }
     }
 
