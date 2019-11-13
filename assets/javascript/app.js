@@ -229,7 +229,6 @@ $(document).ready(function() {
 
     function restartGame() {
         if (index === 10) {
-            $("#display").empty();
             $("#display").html("Let's see how you did!");
             $("#question").empty();
             $("#choice-one").html("Number of Correct Answers: " + correctAnswers);
