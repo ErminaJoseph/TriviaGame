@@ -75,7 +75,7 @@ $(document).ready(function() {
             console.log(questionAndAnswers[index].choices[1])
             console.log(questionAndAnswers[index].choices[2])
             console.log(questionAndAnswers[index].choices[3])
-        }, 3000);
+        }, 2000);
     });
 
     $("#choice-two").on("click", function() {
@@ -100,7 +100,7 @@ $(document).ready(function() {
             console.log(questionAndAnswers[index].choices[1])
             console.log(questionAndAnswers[index].choices[2])
             console.log(questionAndAnswers[index].choices[3])
-        }, 3000);
+        }, 2000);
     });
 
     $("#choice-three").on("click", function() {
@@ -153,6 +153,11 @@ $(document).ready(function() {
         }, 2000);
     });
 
+    $("#restart").on("click", function () {
+        startGame ();
+        index = 0;
+    });
+
     function decrement () {
         timer--;
         $("#display").html("Time Remaining: " + timer);
@@ -190,6 +195,7 @@ $(document).ready(function() {
             $("#choice-two").html("Number of Incorrect Answers: " + incorrectAnswers);
             $("#choice-three").empty(" ");
             $("#choice-four").empty(" ");
+            $("#restart").html("Would you like to play again?")
         }
     }
 

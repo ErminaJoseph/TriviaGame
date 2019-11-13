@@ -1,3 +1,14 @@
 body {
+    margin: 0 auto;
+    text-align: center;
     background: url(../images/bluefrenchhorn.jpg);
+}
+
+.container {
+    font-family: 'Anton', sans-serif;
+    color: white;
+}
+
+#get-started {
+    font-size: 25px;
 }
