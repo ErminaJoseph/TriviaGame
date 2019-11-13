@@ -51,6 +51,7 @@ $(document).ready(function() {
 
     $("#get-started").on("click", function () {
         startGame ();
+        $("#restart").empty();
     });
 
     $("#choice-one").on("click", function() {
@@ -71,6 +72,7 @@ $(document).ready(function() {
             $("#choice-two").html(questionAndAnswers[index].choices[1]);
             $("#choice-three").html(questionAndAnswers[index].choices[2]);
             $("#choice-four").html(questionAndAnswers[index].choices[3]);
+            $("#restart").empty();
             console.log(questionAndAnswers[index].choices[0])
             console.log(questionAndAnswers[index].choices[1])
             console.log(questionAndAnswers[index].choices[2])
@@ -96,6 +98,7 @@ $(document).ready(function() {
             $("#choice-two").html(questionAndAnswers[index].choices[1]);
             $("#choice-three").html(questionAndAnswers[index].choices[2]);
             $("#choice-four").html(questionAndAnswers[index].choices[3]);
+            $("#restart").empty();
             console.log(questionAndAnswers[index].choices[0])
             console.log(questionAndAnswers[index].choices[1])
             console.log(questionAndAnswers[index].choices[2])
@@ -121,6 +124,7 @@ $(document).ready(function() {
             $("#choice-two").html(questionAndAnswers[index].choices[1]);
             $("#choice-three").html(questionAndAnswers[index].choices[2]);
             $("#choice-four").html(questionAndAnswers[index].choices[3]);
+            $("#restart").empty();
             console.log(questionAndAnswers[index].choices[0])
             console.log(questionAndAnswers[index].choices[1])
             console.log(questionAndAnswers[index].choices[2])
@@ -146,6 +150,7 @@ $(document).ready(function() {
             $("#choice-two").html(questionAndAnswers[index].choices[1]);
             $("#choice-three").html(questionAndAnswers[index].choices[2]);
             $("#choice-four").html(questionAndAnswers[index].choices[3]);
+            $("#restart").empty();
             console.log(questionAndAnswers[index].choices[0])
             console.log(questionAndAnswers[index].choices[1])
             console.log(questionAndAnswers[index].choices[2])
@@ -169,6 +174,7 @@ $(document).ready(function() {
             $("#choice-two").empty();
             $("#choice-three").empty();
             $("#choice-four").empty();
+            $("#restart").empty();
             console.log(questionAndAnswers[index].answer);
             index ++;
             incorrectAnswer++;
@@ -189,13 +195,15 @@ $(document).ready(function() {
         }
 
         if (index === 10) {
-            $("#display").html("Let's see how you did!");
-            $("#question").empty();
-            $("#choice-one").html("Number of Correct Answers: " + correctAnswers);
-            $("#choice-two").html("Number of Incorrect Answers: " + incorrectAnswers);
-            $("#choice-three").empty(" ");
-            $("#choice-four").empty(" ");
-            $("#restart").html("Would you like to play again?")
+            finalPage = setTimeout(function() {
+                $("#display").html("Let's see how you did!");
+                $("#question").empty();
+                $("#choice-one").html("Number of Correct Answers: " + correctAnswers);
+                $("#choice-two").html("Number of Incorrect Answers: " + incorrectAnswers);
+                $("#choice-three").empty(" ");
+                $("#choice-four").empty(" ");
+                $("#restart").html("Would you like to play again?")
+            }, 2000);
         }
     }
 
@@ -208,15 +216,17 @@ $(document).ready(function() {
         $("#choice-two").html(questionAndAnswers[0].choices[1]);
         $("#choice-three").html(questionAndAnswers[0].choices[2]);
         $("#choice-four").html(questionAndAnswers[0].choices[3]);
+        $("#restart").empty();
     }
 
     function correctAnswer () {
         $("#display").empty();
         $("#question").empty();
         $("#choice-one").html("You are correct!");
-        $("#choice-two").html(" ");
-        $("#choice-three").html(" ");
-        $("#choice-four").html(" ");
+        $("#choice-two").empty();
+        $("#choice-three").empty();
+        $("#choice-four").empty();
+        $("#restart").empty();
         correctAnswers++;
         console.log(correctAnswers);
         index++;
@@ -227,9 +237,10 @@ $(document).ready(function() {
         $("#dipslay").empty();
         $("#question").empty();
         $("#choice-one").html("Whoops!  The correct answer is: " + questionAndAnswers[index].answer);
-        $("#choice-two").html(" ");
-        $("#choice-three").html(" ");
-        $("#choice-four").html(" ");
+        $("#choice-two").empty();
+        $("#choice-three").empty();
+        $("#choice-four").empty();
+        $("#restart").empty();
         incorrectAnswers++;
         console.log(incorrectAnswers);
         index++;
