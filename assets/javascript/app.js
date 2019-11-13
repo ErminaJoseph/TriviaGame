@@ -72,8 +72,6 @@ $(document).ready(function() {
         finalPagePrompt = setTimeout(function() {
             restartGame();
         }, 2000)
-
-        
     });
 
     $("#choice-two").on("click", function() {
@@ -135,8 +133,7 @@ $(document).ready(function() {
 
         finalPagePrompt = setTimeout(function() {
             restartGame();
-        }, 2000)
-
+        }, 2000);
 
     });
 
@@ -160,10 +157,8 @@ $(document).ready(function() {
             console.log(questionAndAnswers[index].answer);
             index ++;
             incorrectAnswer++;
-            
 
             nextQuestionPrompt = setTimeout(function() {
-                timer = 31;
                 nextQuestion();
             }, 2000);
         }
