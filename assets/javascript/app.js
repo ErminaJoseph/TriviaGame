@@ -66,18 +66,14 @@ $(document).ready(function() {
         }
 
         nextQuestionPrompt = setTimeout(function() {
-            timer = 31;
-            $("#question").html(questionAndAnswers[index].question);
-            $("#choice-one").html(questionAndAnswers[index].choices[0]);
-            $("#choice-two").html(questionAndAnswers[index].choices[1]);
-            $("#choice-three").html(questionAndAnswers[index].choices[2]);
-            $("#choice-four").html(questionAndAnswers[index].choices[3]);
-            $("#restart").empty();
-            console.log(questionAndAnswers[index].choices[0])
-            console.log(questionAndAnswers[index].choices[1])
-            console.log(questionAndAnswers[index].choices[2])
-            console.log(questionAndAnswers[index].choices[3])
+            nextQuestion();
         }, 2000);
+
+        finalPagePrompt = setTimeout(function() {
+            restartGame();
+        }, 2000)
+
+        
     });
 
     $("#choice-two").on("click", function() {
@@ -92,18 +88,13 @@ $(document).ready(function() {
         }
 
         nextQuestionPrompt = setTimeout(function() {
-            timer = 31;
-            $("#question").html(questionAndAnswers[index].question);
-            $("#choice-one").html(questionAndAnswers[index].choices[0]);
-            $("#choice-two").html(questionAndAnswers[index].choices[1]);
-            $("#choice-three").html(questionAndAnswers[index].choices[2]);
-            $("#choice-four").html(questionAndAnswers[index].choices[3]);
-            $("#restart").empty();
-            console.log(questionAndAnswers[index].choices[0])
-            console.log(questionAndAnswers[index].choices[1])
-            console.log(questionAndAnswers[index].choices[2])
-            console.log(questionAndAnswers[index].choices[3])
+            nextQuestion();
         }, 2000);
+
+        finalPagePrompt = setTimeout(function() {
+            restartGame();
+        }, 2000)
+
     });
 
     $("#choice-three").on("click", function() {
@@ -118,18 +109,13 @@ $(document).ready(function() {
         }
 
         nextQuestionPrompt = setTimeout(function() {
-            timer = 31;
-            $("#question").html(questionAndAnswers[index].question);
-            $("#choice-one").html(questionAndAnswers[index].choices[0]);
-            $("#choice-two").html(questionAndAnswers[index].choices[1]);
-            $("#choice-three").html(questionAndAnswers[index].choices[2]);
-            $("#choice-four").html(questionAndAnswers[index].choices[3]);
-            $("#restart").empty();
-            console.log(questionAndAnswers[index].choices[0])
-            console.log(questionAndAnswers[index].choices[1])
-            console.log(questionAndAnswers[index].choices[2])
-            console.log(questionAndAnswers[index].choices[3])
+            nextQuestion();
         }, 2000);
+
+        finalPagePrompt = setTimeout(function() {
+            restartGame();
+        }, 2000)
+
     });
 
     $("#choice-four").on("click", function() {
@@ -144,18 +130,14 @@ $(document).ready(function() {
         }
 
         nextQuestionPrompt = setTimeout(function() {
-            timer = 31;
-            $("#question").html(questionAndAnswers[index].question);
-            $("#choice-one").html(questionAndAnswers[index].choices[0]);
-            $("#choice-two").html(questionAndAnswers[index].choices[1]);
-            $("#choice-three").html(questionAndAnswers[index].choices[2]);
-            $("#choice-four").html(questionAndAnswers[index].choices[3]);
-            $("#restart").empty();
-            console.log(questionAndAnswers[index].choices[0])
-            console.log(questionAndAnswers[index].choices[1])
-            console.log(questionAndAnswers[index].choices[2])
-            console.log(questionAndAnswers[index].choices[3])
+            nextQuestion();
         }, 2000);
+
+        finalPagePrompt = setTimeout(function() {
+            restartGame();
+        }, 2000)
+
+
     });
 
     $("#restart").on("click", function () {
@@ -182,26 +164,8 @@ $(document).ready(function() {
 
             nextQuestionPrompt = setTimeout(function() {
                 timer = 31;
-                $("#question").html(questionAndAnswers[index].question);
-                $("#choice-one").html(questionAndAnswers[index].choices[0]);
-                $("#choice-two").html(questionAndAnswers[index].choices[1]);
-                $("#choice-three").html(questionAndAnswers[index].choices[2]);
-                $("#choice-four").html(questionAndAnswers[index].choices[3]);
-                console.log(questionAndAnswers[index].choices[0])
-                console.log(questionAndAnswers[index].choices[1])
-                console.log(questionAndAnswers[index].choices[2])
-                console.log(questionAndAnswers[index].choices[3])
+                nextQuestion();
             }, 2000);
-        }
-
-        if (index === 10) {
-            $("#display").html("Let's see how you did!");
-            $("#question").empty();
-            $("#choice-one").html("Number of Correct Answers: " + correctAnswers);
-            $("#choice-two").html("Number of Incorrect Answers: " + incorrectAnswers);
-            $("#choice-three").empty(" ");
-            $("#choice-four").empty(" ");
-            $("#restart").html("Would you like to play again?")
         }
     }
 
@@ -246,5 +210,30 @@ $(document).ready(function() {
     
     }
 
+    function nextQuestion(){
+        timer = 31;
+        $("#question").html(questionAndAnswers[index].question);
+        $("#choice-one").html(questionAndAnswers[index].choices[0]);
+        $("#choice-two").html(questionAndAnswers[index].choices[1]);
+        $("#choice-three").html(questionAndAnswers[index].choices[2]);
+        $("#choice-four").html(questionAndAnswers[index].choices[3]);
+        $("#restart").empty();
+        console.log(questionAndAnswers[index].choices[0]);
+        console.log(questionAndAnswers[index].choices[1]);
+        console.log(questionAndAnswers[index].choices[2]);
+        console.log(questionAndAnswers[index].choices[3]);
+    }
+
+    function restartGame() {
+        if (index === 10) {
+            $("#display").html("Let's see how you did!");
+            $("#question").empty();
+            $("#choice-one").html("Number of Correct Answers: " + correctAnswers);
+            $("#choice-two").html("Number of Incorrect Answers: " + incorrectAnswers);
+            $("#choice-three").empty(" ");
+            $("#choice-four").empty(" ");
+            $("#restart").html("Would you like to play again?")
+        }
+    }
 
 });
