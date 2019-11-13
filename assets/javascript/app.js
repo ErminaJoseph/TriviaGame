@@ -58,6 +58,7 @@ $(document).ready(function() {
         userChoice = $(this).text();
         console.log(userChoice);
         console.log(questionAndAnswers[index].answer);
+        clearInterval(timerID);
         if (userChoice === questionAndAnswers[index].answer) {
             correctAnswer();
         } else {
@@ -78,6 +79,7 @@ $(document).ready(function() {
         userChoice = $(this).text();
         console.log(userChoice);
         console.log(questionAndAnswers[index].answer);
+        clearInterval(timerID);
         if (userChoice === questionAndAnswers[index].answer) {
             correctAnswer();
         } else {
@@ -99,6 +101,7 @@ $(document).ready(function() {
         userChoice = $(this).text();
         console.log(userChoice);
         console.log(questionAndAnswers[index].answer);
+        clearInterval(timerID);
         if (userChoice === questionAndAnswers[index].answer) {
             correctAnswer();
         } else {
@@ -120,6 +123,7 @@ $(document).ready(function() {
         userChoice = $(this).text();
         console.log(userChoice);
         console.log(questionAndAnswers[index].answer)
+        clearInterval(timerID);
         if (userChoice === questionAndAnswers[index].answer) {
             correctAnswer();
         } else {
@@ -137,6 +141,7 @@ $(document).ready(function() {
     });
 
     $("#restart").on("click", function () {
+        clearInterval(timerID);
         startGame ();
     });
 
@@ -145,6 +150,7 @@ $(document).ready(function() {
         $("#display").html("Time Remaining: " + timer);
 
         if (timer === 0) {
+            clearInterval(timerID);
             $("#display").empty();
             $("#question").empty();
             $("#choice-one").html("Time's up! the correct answer is: " + questionAndAnswers[index].answer);
@@ -158,12 +164,17 @@ $(document).ready(function() {
             nextQuestionPrompt = setTimeout(function() {
                 nextQuestion();
             }, 2000);
+
+            finalPagePrompt = setTimeout(function() {
+                restartGame();
+            }, 2000);
         }
     }
 
     function startGame () {
         $("#display").empty()
         timerID = setInterval(decrement, 1000);
+        timer = 31;
         $("#question").html(questionAndAnswers[0].question);
         $("#choice-one").html(questionAndAnswers[0].choices[0]);
         $("#choice-two").html(questionAndAnswers[0].choices[1]);
@@ -187,7 +198,7 @@ $(document).ready(function() {
     }
 
     function incorrectAnswer () {
-        $("#dipslay").empty();
+        $("#display").empty();
         $("#question").empty();
         $("#choice-one").html("Whoops!  The correct answer is: " + questionAndAnswers[index].answer);
         $("#choice-two").empty();
@@ -203,6 +214,7 @@ $(document).ready(function() {
 
     function nextQuestion(){
         timer = 31;
+        timerID = setInterval(decrement, 1000);
         $("#question").html(questionAndAnswers[index].question);
         $("#choice-one").html(questionAndAnswers[index].choices[0]);
         $("#choice-two").html(questionAndAnswers[index].choices[1]);
@@ -217,6 +229,7 @@ $(document).ready(function() {
 
     function restartGame() {
         if (index === 10) {
+            $("#display").empty();
             $("#display").html("Let's see how you did!");
             $("#question").empty();
             $("#choice-one").html("Number of Correct Answers: " + correctAnswers);
