@@ -195,15 +195,13 @@ $(document).ready(function() {
         }
 
         if (index === 10) {
-            finalPage = setTimeout(function() {
-                $("#display").html("Let's see how you did!");
-                $("#question").empty();
-                $("#choice-one").html("Number of Correct Answers: " + correctAnswers);
-                $("#choice-two").html("Number of Incorrect Answers: " + incorrectAnswers);
-                $("#choice-three").empty(" ");
-                $("#choice-four").empty(" ");
-                $("#restart").html("Would you like to play again?")
-            }, 2000);
+            $("#display").html("Let's see how you did!");
+            $("#question").empty();
+            $("#choice-one").html("Number of Correct Answers: " + correctAnswers);
+            $("#choice-two").html("Number of Incorrect Answers: " + incorrectAnswers);
+            $("#choice-three").empty(" ");
+            $("#choice-four").empty(" ");
+            $("#restart").html("Would you like to play again?")
         }
     }
 
