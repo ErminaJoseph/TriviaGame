@@ -152,8 +152,9 @@ $(document).ready(function() {
         if (timer === 0) {
             clearInterval(timerID);
             $("#display").empty();
+            $("#results").html("Time's up! the correct answer is: " + questionAndAnswers[index].answer);
             $("#question").empty();
-            $("#choice-one").html("Time's up! the correct answer is: " + questionAndAnswers[index].answer);
+            $("#choice-one").empty();
             $("#choice-two").empty();
             $("#choice-three").empty();
             $("#choice-four").empty();
@@ -178,6 +179,8 @@ $(document).ready(function() {
         $("#display").empty()
         timerID = setInterval(decrement, 1000);
         timer = 31;
+        $("#results").empty();
+        $("#results-two").empty();
         $("#question").html(questionAndAnswers[0].question);
         $("#choice-one").html(questionAndAnswers[0].choices[0]);
         $("#choice-two").html(questionAndAnswers[0].choices[1]);
@@ -188,8 +191,9 @@ $(document).ready(function() {
 
     function correctAnswer () {
         $("#display").empty();
+        $("#results").html("You Are Correct!");
         $("#question").empty();
-        $("#choice-one").html("You are correct!");
+        $("#choice-one").empty();
         $("#choice-two").empty();
         $("#choice-three").empty();
         $("#choice-four").empty();
@@ -202,8 +206,9 @@ $(document).ready(function() {
 
     function incorrectAnswer () {
         $("#display").empty();
+        $("#results").html("Whoops!  The correct answer is: " + questionAndAnswers[index].answer);
         $("#question").empty();
-        $("#choice-one").html("Whoops!  The correct answer is: " + questionAndAnswers[index].answer);
+        $("#choice-one").empty();
         $("#choice-two").empty();
         $("#choice-three").empty();
         $("#choice-four").empty();
@@ -223,6 +228,8 @@ $(document).ready(function() {
         $("#choice-two").html(questionAndAnswers[index].choices[1]);
         $("#choice-three").html(questionAndAnswers[index].choices[2]);
         $("#choice-four").html(questionAndAnswers[index].choices[3]);
+        $("#results").empty();
+        $("#results-two").empty();
         $("#restart").empty();
         console.log(questionAndAnswers[index].choices[0]);
         console.log(questionAndAnswers[index].choices[1]);
@@ -234,11 +241,13 @@ $(document).ready(function() {
         if (index === 10) {
             clearInterval(timerID);
             $("#display").html("Let's see how you did!");
+            $("#results").html("Number of Correct Answers: " + correctAnswers);
+            $("#results-two").html("Number of Incorrect Answers: " + incorrectAnswers);
             $("#question").empty();
-            $("#choice-one").html("Number of Correct Answers: " + correctAnswers);
-            $("#choice-two").html("Number of Incorrect Answers: " + incorrectAnswers);
-            $("#choice-three").empty(" ");
-            $("#choice-four").empty(" ");
+            $("#choice-one").empty();
+            $("#choice-two").empty();
+            $("#choice-three").empty();
+            $("#choice-four").empty();
             $("#restart").html("Would you like to play again?  Click Here!")
             index = 0;
             correctAnswers = 0;
