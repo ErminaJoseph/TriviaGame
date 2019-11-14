@@ -159,7 +159,10 @@ $(document).ready(function() {
             $("#choice-four").empty();
             $("#restart").empty();
             console.log(questionAndAnswers[index].answer);
-            incorrectAnswer();
+            incorrectAnswers++;
+            console.log(incorrectAnswers);
+            index++;
+            console.log(index);
 
             nextQuestionPrompt = setTimeout(function() {
                 nextQuestion();
