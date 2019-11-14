@@ -15,7 +15,7 @@ $(document).ready(function() {
             answer: "Designs board games",
             choices: ["Designs board games", "Creates unique desserts", "Software Engineer", "He doesn't work"],
         }, {
-            question: "Which singer/actress did not guest star on the show?",
+            question: "Which singer/actress guest starred on the show?",
             answer: "All of the above",
             choices: ["Jennifer Lopez", "Carrie Underwood", "Katy Perry", "All of the above"],
         }, {
@@ -23,7 +23,7 @@ $(document).ready(function() {
             answer: "Karen",
             choices: ["Cassie", "Kathy", "Karen", "Kelly"],
         }, {
-            question: "What is Barney's catch word",
+            question: "What is Barney's catch word?",
             answer: "Legendary",
             choices: ["Legendary", "Epic", "Exhiliarting", "None of the above" ],
         }, {
