@@ -236,7 +236,7 @@ $(document).ready(function() {
             $("#choice-two").html("Number of Incorrect Answers: " + incorrectAnswers);
             $("#choice-three").empty(" ");
             $("#choice-four").empty(" ");
-            $("#restart").html("Would you like to play again?")
+            $("#restart").html("Would you like to play again?  Click Here!")
             index = 0;
             correctAnswers = 0;
             incorrectAnswers = 0;

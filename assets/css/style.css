@@ -7,8 +7,9 @@ body {
 .container {
     font-family: 'Anton', sans-serif;
     color: white;
+    font-size: 25px;
 }
 
 #get-started {
-    font-size: 25px;
+    font-size: 35px;
 }
