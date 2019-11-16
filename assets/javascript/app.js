@@ -152,7 +152,7 @@ $(document).ready(function() {
         if (timer === 0) {
             clearInterval(timerID);
             $("#display").empty();
-            $("#results").html("Time's up! the correct answer is: " + questionAndAnswers[index].answer);
+            $("#results").html("Time's up! The correct answer is: " + questionAndAnswers[index].answer);
             $("#question").empty();
             $("#choice-one").empty();
             $("#choice-two").empty();
